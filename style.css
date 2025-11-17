@@ -74,8 +74,8 @@ nav a:hover {
 .hero {
   min-height: 90vh;
   margin-top: 68px; /* espacio para header fijo */
-  background: linear-gradient(135deg, rgba(26, 38, 60, 0.95), rgba(17, 22, 35, 0.85)),
-    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1950&q=80')
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.squarespace-cdn.com/content/v1/65934d3c3cae2759c62f8dd2/985b2d8c-3737-49d9-9fce-83b10aa6c31d/DJI_0301.jpg?format=750w')
       center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -91,7 +91,7 @@ nav a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(6, 18, 35, 0.1);
 }
 
 .hero::after {
@@ -184,41 +184,6 @@ nav a:hover {
 .services {
   background: var(--gray-soft);
   padding: 3rem 1rem;
-}
-
-.statement-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.statement-card {
-  background: var(--white);
-  padding: 1.75rem;
-  border-radius: 14px;
-  border: 1px solid rgba(27, 54, 93, 0.08);
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  justify-content: center;
-  text-align: left;
-  color: var(--text-base);
-}
-
-.statement-card h3 {
-  margin: 0;
-  color: var(--blue-dark);
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
-}
-
-.statement-card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.45;
-  font-size: 0.96rem;
 }
 
 .services-grid {
