@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros | Baumann &amp; Co.</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-p1Cm5xbJp+YtDtimA7Ryu/I6RW+MMm12uBPyFwQdIJTL3zXSaUmdB7aWcOQqJwHG58Fx6dOKy8YT3KfUoKabYQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="page-loader" id="page-loader">
+      <span class="spinner" aria-hidden="true"></span>
+    </div>
+    <!-- Navegacion compartida -->
+    <header>
+      <div class="brand">Baumann &amp; Co.</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="schedule.html">Agendar Reunion</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Seccion principal de la empresa -->
+    <section class="container fade-in-section" style="padding-top: 120px; --delay:0.2s;">
+      <h1>Acerca de Baumann &amp; Co.</h1>
+      <p>
+        Baumann &amp; Co. es una consultora dedicada a medianas empresas de Latinoamerica y Florida,
+        que restablece el crecimiento comercial mediante una estrategia clara y ejecucion medida.
+      </p>
+      <p>
+        Nuestro enfoque mezcla precision escandinava, sobriedad suiza y rigurosidad aleman, con un
+        tono sereno y experto para ordenar el area comercial y conectarla con la estrategia general.
+      </p>
+      <div class="statement-grid">
+        <article class="statement-card">
+          <h3>Mision</h3>
+          <p>
+            Impulsar un crecimiento sostenible para medianas empresas, entregando soluciones
+            estrategicas que impacten directamente los resultados comerciales y operativos.
+          </p>
+        </article>
+        <article class="statement-card">
+          <h3>Vision</h3>
+          <p>
+            Ser la firma de consultoria referenciada por estas empresas, gracias a resultados
+            tangibles, relaciones de largo plazo y adaptacion agil por industria.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seccion de enfoque y diferenciador -->
+    <section class="services fade-in-section" style="--delay:0.4s;">
+      <div class="container">
+        <h2>Precision, ejecucion y control</h2>
+        <div class="statement-grid">
+          <article class="statement-card">
+            <h3>Tipo de empresa ideal</h3>
+            <p>
+              Medianas empresas, ventas de USD 1 a 20 millones y equipos de 30 a 200 personas que
+              tienen una operativa funcionando pero carecen de orden comercial y foco estrategico.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Dolor principal</h3>
+            <p>
+              Crecimiento impulsivo que hoy se traduce en ventas estancadas, dependencia del dueno y
+              decisiones basadas en intuicion sin metricas claras.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Resultado en 90 dias</h3>
+            <p>
+              Convertimos el area comercial en un sistema con metricas, pipeline y cadencia de
+              reuniones que permiten mejorar las ventas sin sobreexigir al gerente general.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Diferenciador operativo</h3>
+            <p>
+              Somos consultor-implementadores: diagnosticamos rapido, priorizamos tres palancas y
+              acompanamos semanalmente la ejecucion midiendo KPIs y retornos como conversion y margen.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Propuesta</h3>
+            <p>
+              Baumann &amp; Co. trae orden comercial real: en 30 dias diagnosticamos y definimos las
+              palancas, y en los siguientes 60 dias instalamos procesos, KPIs y cadencia de gestion.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seccion fundador -->
+    <section class="founder-section fade-in-section" style="--delay:0.45s;">
+      <div class="founder-inner">
+        <img src="founder.jpg" alt="Manuel Baumann, Fundador" />
+        <div class="founder-text">
+          <h2>Manuel Baumann - Fundador y CEO</h2>
+            <p>
+            Manuel Baumann fundo la firma tras mas de 15 anos liderando consultoria empresarial.
+            Ha guiado transformaciones comerciales y mejoras de gestion para varias companias de
+            Latinoamerica, siempre con un estilo calculado y orientado a resultados.
+          </p>
+            <p>
+            Bajo su direccion, las empresas recuperan crecimiento y construyen estructuras solidas
+            que reducen la dependencia del fundador, manteniendo una disciplina de ejecucion semanal.
+          </p>
+          <div class="founder-highlights">
+            <span class="highlight">+100 empresas asesoradas</span>
+            <span class="highlight">Presencia en 5 paises de Latam</span>
+            <span class="highlight">Promedio 6 meses para resultados visibles</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Baumann &amp; Co. - Todos los derechos reservados. Contacto:
+      <a href="mailto:info@baumann-co.com">info@baumann-co.com</a>
+    </footer>
+    <script>
+      window.addEventListener('load', function () {
+        var loader = document.getElementById('page-loader');
+        if (!loader) {
+          return;
+        }
+        loader.classList.add('fade-out');
+        loader.addEventListener('transitionend', function () {
+          if (loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

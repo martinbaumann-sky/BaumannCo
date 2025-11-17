@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baumann &amp; Co. | Consultoria Comercial</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- FontAwesome CDN para iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-p1Cm5xbJp+YtDtimA7Ryu/I6RW+MMm12uBPyFwQdIJTL3zXSaUmdB7aWcOQqJwHG58Fx6dOKy8YT3KfUoKabYQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="page-loader" id="page-loader">
+      <span class="spinner" aria-hidden="true"></span>
+    </div>
+    <!-- Header fijo con navegacion -->
+    <header>
+      <div class="brand">Baumann &amp; Co.</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="schedule.html">Agendar Reunion</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero principal -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          Baumann &amp; Co. acompana a medianas empresas de Latinoamerica y Florida a reenfocar
+          su crecimiento comercial y recuperar el control de gestion.
+        </h1>
+        <h2>Estrategia clara. Crecimiento real.</h2>
+        <p>
+          Disenamos diagnosticos agiles, planes precisos y ejecucion medida para que el area comercial
+          deje de depender del dueno y avance con certidumbre.
+        </p>
+        <a class="btn" href="schedule.html">Agendar Reunion</a>
+      </div>
+    </section>
+
+    <!-- Servicios / pilares -->
+    <section class="services fade-in-section" style="--delay: 0.25s;">
+      <div class="container">
+        <div class="services-grid">
+          <article class="service-card">
+            <i class="fas fa-search"></i>
+            <h3>Diagnostico en dias</h3>
+            <p>
+              Documentamos procesos, metricas y actores para identificar rapido los cuellos de botella.
+            </p>
+          </article>
+          <article class="service-card">
+            <i class="fas fa-route"></i>
+            <h3>Plan claro</h3>
+            <p>
+              Prioritizamos tres palancas de impacto con KPIs y tareas que conectan la estrategia con la operacion.
+            </p>
+          </article>
+          <article class="service-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Ejecucion medida</h3>
+            <p>
+              Acompaniamos la implementacion semana a semana midiendo pipeline, conversion y margen.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mision, vision y tono -->
+    <section class="about-brief fade-in-section" style="--delay: 0.45s;">
+      <div class="container">
+        <h2>Estrategia clara. Crecimiento real.</h2>
+        <p>
+          Guiamos empresas medianas hacia un crecimiento sostenible, articulando comercial y operacion con un lenguaje sobrio y enfocado en hechos.
+        </p>
+        <div class="statement-grid">
+          <article class="statement-card">
+            <h3>Mision</h3>
+            <p>
+              Avanzar el crecimiento sostenible de medianas empresas en Latinoamerica con soluciones estrategicas que mejoren sus resultados comerciales y operativos.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Vision</h3>
+            <p>
+              Ser la firma de consultoria de referencia para este segmento, reconocida por resultados tangibles y relaciones de largo plazo.
+            </p>
+          </article>
+        </div>
+        <a class="inline-link" href="nosotros.html">Conoce mas &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Perfil del cliente -->
+    <section class="services fade-in-section" style="--delay: 0.6s;">
+      <div class="container">
+        <h2>Empresas medianas con crecimiento detenido</h2>
+        <div class="statement-grid">
+          <article class="statement-card">
+            <h3>Tipo de empresa ideal</h3>
+            <p>
+              Ventas de USD 1 a 20 millones, entre 30 y 200 empleados, con estructura operativa pero sin un sistema comercial ordenado ni foco estrategico definido.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Dolor central</h3>
+            <p>
+              Ventas estancadas o dependientes del dueno, ausencia de procesos comerciales y decisiones guiadas por intuicion.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Resultado en 90 dias</h3>
+            <p>
+              Dejamos el area comercial con metricas, pipeline y reuniones de seguimiento que permiten predecir y mejorar ventas sin depender del gerente general.
+            </p>
+          </article>
+          <article class="statement-card">
+            <h3>Diferenciador operativo</h3>
+            <p>
+              Somos consultor-implementadores: diagnosticamos rapido, priorizamos palancas, medimos KPIs y acompanamos la ejecucion hasta que se traduce en conversion, margen y caja.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- Footer comun -->
+    <footer>
+      &copy; 2025 Baumann &amp; Co. - Todos los derechos reservados. Contacto:
+      <a href="mailto:info@baumann-co.com">info@baumann-co.com</a>
+    </footer>
+    <script>
+      window.addEventListener('load', function () {
+        var loader = document.getElementById('page-loader');
+        if (!loader) {
+          return;
+        }
+        loader.classList.add('fade-out');
+        loader.addEventListener('transitionend', function () {
+          if (loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

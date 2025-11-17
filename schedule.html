@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda una reunion | Baumann &amp; Co.</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-p1Cm5xbJp+YtDtimA7Ryu/I6RW+MMm12uBPyFwQdIJTL3zXSaUmdB7aWcOQqJwHG58Fx6dOKy8YT3KfUoKabYQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="page-loader" id="page-loader">
+      <span class="spinner" aria-hidden="true"></span>
+    </div>
+    <!-- Header identico -->
+    <header>
+      <div class="brand">Baumann &amp; Co.</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="schedule.html">Agendar Reunion</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <section class="calendly-wrapper fade-in-section" style="--delay:0.3s;">
+      <h2>Agenda una reunion con nosotros</h2>
+      <p style="text-align:center; max-width:720px; margin: 0 auto 1rem;">
+        Baumann &amp; Co. es un equipo consultor-implementador que transforma ventas caoticas en
+        sistemas repetibles. En 30 dias diagnosticamos y definimos tres palancas de impacto, y en
+        las siguientes 8 semanas estrenamos procesos, KPIs y cadencia de gestion.
+      </p>
+      <p style="text-align:center; max-width:720px; margin: 0 auto 2rem;">
+        Selecciona el dia y la hora que mejor te convenga. Confirmaremos la reunion e iniciaremos
+        de inmediato el diagnostico y el plan de ejecucion.
+      </p>
+      <!-- Contenedor Calendly (actualizar data-url con el enlace real de la empresa) -->
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/usuarioBaumann/reunion"
+        style="min-width:320px;height:750px;"
+      ></div>
+      <script
+        type="text/javascript"
+        src="https://assets.calendly.com/assets/external/widget.js"
+      ></script>
+    </section>
+
+    <footer>
+      &copy; 2025 Baumann &amp; Co. - Todos los derechos reservados. Contacto:
+      <a href="mailto:info@baumann-co.com">info@baumann-co.com</a>
+    </footer>
+    <script>
+      window.addEventListener('load', function () {
+        var loader = document.getElementById('page-loader');
+        if (!loader) {
+          return;
+        }
+        loader.classList.add('fade-out');
+        loader.addEventListener('transitionend', function () {
+          if (loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
