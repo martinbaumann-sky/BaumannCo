@@ -21,7 +21,7 @@
     <!-- Header fijo con navegacion -->
     <header>
       <div class="brand">Baumann &amp; Co.</div>
-      <nav>
+      <nav class="staggered-menu">
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
@@ -43,6 +43,30 @@
           deje de depender del dueno y avance con certidumbre.
         </p>
         <a class="btn" href="schedule.html">Agendar Reunion</a>
+      </div>
+    </section>
+
+    <!-- Destacados cuantificables -->
+    <section class="stats-section fade-in-section" style="--delay: 0.55s;">
+      <div class="container">
+        <div class="stats-header">
+          <p class="eyebrow">Resultados cuantificables</p>
+          <h3>Más allá del entusiasmo: números que muestran la real evolución comercial.</h3>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-number" data-target="72" data-duration="1500" data-suffix="+">0</span>
+            <p>Empresas medianas acompañadas en Latinoamérica</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number" data-target="28" data-duration="1600" data-suffix="%">0</span>
+            <p>Promedio de mejora en tasa de cierre tras los 6 primeros meses</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number" data-target="320" data-duration="1800" data-suffix="h">0</span>
+            <p>Horas de acompañamiento estratégico y operativo al año</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -91,17 +115,91 @@
       <a href="mailto:info@baumann-co.com">info@baumann-co.com</a>
     </footer>
     <script>
-      window.addEventListener('load', function () {
-        var loader = document.getElementById('page-loader');
-        if (!loader) {
+      function formatNumber(value, decimals) {
+        return value.toLocaleString('es-ES', {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        });
+      }
+
+      function animateStat(element) {
+        var prefix = element.dataset.prefix || '';
+        var suffix = element.dataset.suffix || '';
+        var duration = Number(element.dataset.duration) || 1400;
+        var decimals = Number(element.dataset.decimals) || 0;
+        var target = Number(element.dataset.target);
+        if (!Number.isFinite(target)) {
           return;
         }
-        loader.classList.add('fade-out');
-        loader.addEventListener('transitionend', function () {
-          if (loader.parentNode) {
-            loader.parentNode.removeChild(loader);
+
+        var startTimestamp = null;
+        function step(timestamp) {
+          if (startTimestamp === null) {
+            startTimestamp = timestamp;
           }
+          var progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          var current = target * progress;
+          element.textContent = prefix + formatNumber(current, decimals) + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        }
+
+        window.requestAnimationFrame(step);
+      }
+
+      function initStatsAnimation() {
+        var statsSection = document.querySelector('.stats-section');
+        if (!statsSection) {
+          return;
+        }
+        var stats = statsSection.querySelectorAll('.stat-number');
+        var observer = new IntersectionObserver(
+          function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                stats.forEach(function (stat) {
+                  animateStat(stat);
+                });
+                obs.disconnect();
+              }
+            });
+          },
+          {
+            threshold: 0.4,
+          }
+        );
+
+        observer.observe(statsSection);
+      }
+
+      function initStaggeredMenu() {
+        var navList = document.querySelector('nav.staggered-menu ul');
+        if (!navList) {
+          return;
+        }
+
+        navList.querySelectorAll('li').forEach(function (item, index) {
+          item.style.setProperty('--delay', index * 0.12 + 's');
         });
+
+        window.requestAnimationFrame(function () {
+          navList.classList.add('js-ready');
+        });
+      }
+
+      window.addEventListener('load', function () {
+        var loader = document.getElementById('page-loader');
+        if (loader) {
+          loader.classList.add('fade-out');
+          loader.addEventListener('transitionend', function () {
+            if (loader.parentNode) {
+              loader.parentNode.removeChild(loader);
+            }
+          });
+        }
+        initStatsAnimation();
+        initStaggeredMenu();
       });
     </script>
   </body>

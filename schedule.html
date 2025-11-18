@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agenda una reunion | Baumann &amp; Co.</title>
+    <title>Agenda una reunión | Baumann &amp; Co.</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -17,46 +17,137 @@
     <div class="page-loader" id="page-loader">
       <span class="spinner" aria-hidden="true"></span>
     </div>
-    <!-- Header identico -->
+
     <header>
       <div class="brand">Baumann &amp; Co.</div>
       <nav>
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="schedule.html">Agendar Reunion</a></li>
+          <li><a class="active" href="schedule.html">Agendar Reunión</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Contenido principal -->
-    <section class="calendly-wrapper fade-in-section" style="--delay:0.3s;">
-      <h2>Agenda una reunion con nosotros</h2>
-      <p style="text-align:center; max-width:720px; margin: 0 auto 1rem;">
-        Baumann &amp; Co. es un equipo consultor-implementador que transforma ventas caoticas en
-        sistemas repetibles. En 30 dias diagnosticamos y definimos tres palancas de impacto, y en
-        las siguientes 8 semanas estrenamos procesos, KPIs y cadencia de gestion.
-      </p>
-      <p style="text-align:center; max-width:720px; margin: 0 auto 2rem;">
-        Selecciona el dia y la hora que mejor te convenga. Confirmaremos la reunion e iniciaremos
-        de inmediato el diagnostico y el plan de ejecucion.
-      </p>
-      <!-- Contenedor Calendly (actualizar data-url con el enlace real de la empresa) -->
-      <div
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/usuarioBaumann/reunion"
-        style="min-width:320px;height:750px;"
-      ></div>
-      <script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-      ></script>
-    </section>
+    <main>
+      <section class="schedule-hero fade-in-section" style="--delay: 0.2s;">
+        <div class="container">
+          <h1>Reservá una sesión estratégica con nosotros</h1>
+          <p>
+            Coordinamos una videollamada de 45 minutos para entender el pulso comercial de tu
+            empresa, validar las palancas clave y mostrarte cómo arrancamos un sistema repetible en
+            menos de 90 días.
+          </p>
+          <p>
+            Elegí el día y la hora que mejor te sirven, confirmamos al instante y sincronizamos la
+            reunión con tu calendario preferido.
+          </p>
+        </div>
+      </section>
+
+      <section class="schedule-section fade-in-section" style="--delay: 0.4s;">
+        <div class="schedule-grid container">
+          <div class="panel availability-panel">
+            <h2>Nuestra disponibilidad próxima</h2>
+            <p class="timezone-note">Todos los horarios están en Santiago, Chile (GMT-3). Para otros husos, usá el botón de Google.</p>
+            <p>
+              Hacemos foco en turnos matutinos y vespertinos para mantener la energía y asegurar
+              espacio inmediato para tu diagnóstico.
+            </p>
+            <div id="availability-list" class="days-list" aria-live="polite"></div>
+          </div>
+
+          <div class="panel booking-panel">
+            <h2>Reservá tu espacio</h2>
+            <p>Seleccioná un horario, completá tus datos y elegí cómo quieres confirmar la reunión.</p>
+            <div id="selection-summary" class="selection-summary">
+              <p class="placeholder">Seleccioná una franja horaria para ver los detalles.</p>
+            </div>
+
+            <form id="booking-form" novalidate>
+              <label for="attendee-name">Nombre completo</label>
+              <input id="attendee-name" type="text" name="name" required placeholder="Ej. Mariana Rivera" />
+
+              <label for="attendee-email">Correo electrónico</label>
+              <input
+                id="attendee-email"
+                type="email"
+                name="email"
+                required
+                placeholder="Ej. mariana@empresa.com"
+              />
+
+              <label for="attendee-notes">Comentarios opcionales</label>
+              <textarea
+                id="attendee-notes"
+                name="notes"
+                rows="3"
+                placeholder="Contanos el desafío que querés resolver..."
+              ></textarea>
+            </form>
+
+            <div class="action-buttons">
+              <button id="google-link" class="btn" type="button" disabled>
+                Crear evento en Google Calendar
+              </button>
+              <button id="ics-download" class="btn secondary" type="button" disabled>
+                Guardar en Outlook / calendarios iCal
+              </button>
+            </div>
+            <button id="book-with-host" class="btn primary booking-action" type="button" disabled>
+              Reservar en mi calendario
+            </button>
+            <div id="booking-feedback" class="booking-status" aria-live="polite"></div>
+            <p class="form-footnote">
+              Solo pedimos nombre y correo. La confirmación llega a tu mail y bloqueamos el espacio
+              en el calendario.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="schedule-integrations fade-in-section" style="--delay: 0.6s;">
+        <div class="container">
+          <h3>Sincronizalo con tu calendario</h3>
+          <p>
+            Cualquier botón habilitado genera los datos oficiales de la reunión: título, duración
+            de 45 minutos y la descripción de la línea estratégica.
+          </p>
+          <div class="integration-grid">
+            <article>
+              <i class="fa-solid fa-calendar-plus"></i>
+              <h4>Google Calendar</h4>
+              <p>
+                Se abre la ventana de creación con fecha, hora y descripción. Podés elegir usar Meet
+                o el servicio de videollamada que prefieras.
+              </p>
+            </article>
+            <article>
+              <i class="fa-solid fa-microsoft"></i>
+              <h4>Outlook y Teams</h4>
+              <p>
+                El archivo .ics incluye los mismos detalles. Guardalo y luego abrilo desde Outlook o
+                Teams para sincronizarlo al instante.
+              </p>
+            </article>
+            <article>
+              <i class="fa-solid fa-cloud"></i>
+              <h4>Otros calendarios</h4>
+              <p>
+                Apple Calendar, Zoho o cualquier otro lector compatible con iCal también aceptan el
+                archivo descargado.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
       &copy; 2025 Baumann &amp; Co. - Todos los derechos reservados. Contacto:
       <a href="mailto:info@baumann-co.com">info@baumann-co.com</a>
     </footer>
+
     <script>
       window.addEventListener('load', function () {
         var loader = document.getElementById('page-loader');
@@ -70,6 +161,292 @@
           }
         });
       });
+    </script>
+
+    <script>
+      (function () {
+        const API_BASE_URL =
+          window.SCHEDULER_API_URL ||
+          (window.location.protocol === 'file:' ? 'http://localhost:4000' : '');
+        const buildUrl = (path) => (API_BASE_URL ? `${API_BASE_URL}${path}` : path);
+
+        const availabilityList = document.getElementById('availability-list');
+        const selectionSummary = document.getElementById('selection-summary');
+        const bookingForm = document.getElementById('booking-form');
+        const googleButton = document.getElementById('google-link');
+        const icsButton = document.getElementById('ics-download');
+        const hostButton = document.getElementById('book-with-host');
+        const feedback = document.getElementById('booking-feedback');
+
+        let selectedSlot = null;
+        let pageTimeZone = 'America/Santiago';
+        let isBooking = false;
+
+        function formatSummary(date) {
+          const formatter = new Intl.DateTimeFormat('es-CL', {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: pageTimeZone,
+          });
+          return formatter.format(date);
+        }
+
+        function setFeedback(message, variant, link) {
+          feedback.textContent = '';
+          feedback.className = 'booking-status';
+          if (!message) {
+            return;
+          }
+          feedback.classList.add(variant || 'info');
+          feedback.textContent = message;
+          if (link) {
+            const anchor = document.createElement('a');
+            anchor.href = link;
+            anchor.target = '_blank';
+            anchor.rel = 'noreferrer';
+            anchor.textContent = 'Ver invitación';
+            feedback.appendChild(document.createTextNode(' '));
+            feedback.appendChild(anchor);
+          }
+        }
+
+        function clearFeedback() {
+          setFeedback('');
+        }
+
+        function updateSelectionSummary() {
+          if (!selectedSlot) {
+            selectionSummary.innerHTML =
+              '<p class="placeholder">Seleccioná una franja horaria para ver los detalles.</p>';
+            return;
+          }
+          selectionSummary.innerHTML = `
+            <p><strong>${formatSummary(selectedSlot.start)}</strong></p>
+            <p>Duración estimada: 45 minutos</p>
+            <p>Sin compromiso, validamos el plan de acción y te entregamos próximos pasos.</p>
+          `;
+        }
+
+        function updateActionButtons() {
+          const formIsValid = bookingForm.checkValidity();
+          const actionable = formIsValid && Boolean(selectedSlot) && !isBooking;
+          googleButton.disabled = !actionable;
+          icsButton.disabled = !actionable;
+          hostButton.disabled = !actionable;
+          hostButton.textContent = isBooking ? 'Reservando ...' : 'Reservar en mi calendario';
+        }
+
+        function renderSlots(days) {
+          availabilityList.innerHTML = '';
+          selectedSlot = null;
+          updateSelectionSummary();
+          clearFeedback();
+
+          if (!days.length) {
+            availabilityList.innerHTML =
+              '<p class="placeholder">No hay franjas abiertas en las próximas semanas.</p>';
+            updateActionButtons();
+            return;
+          }
+
+          days.forEach((day) => {
+            const card = document.createElement('div');
+            card.className = 'day-card';
+
+            const heading = document.createElement('h4');
+            heading.textContent = day.label;
+            card.appendChild(heading);
+
+            const slotContainer = document.createElement('div');
+            slotContainer.className = 'slot-container';
+
+            day.slots.forEach((slot) => {
+              const button = document.createElement('button');
+              button.type = 'button';
+              button.className = 'slot-button';
+              button.textContent = slot.timeLabel;
+              button.dataset.start = slot.start;
+              button.dataset.end = slot.end;
+              button.dataset.display = slot.display;
+              button.addEventListener('click', () => selectSlot(button));
+              slotContainer.appendChild(button);
+            });
+
+            card.appendChild(slotContainer);
+          availabilityList.appendChild(card);
+        });
+        updateActionButtons();
+      }
+
+        function selectSlot(button) {
+          const allButtons = availabilityList.querySelectorAll('.slot-button');
+          allButtons.forEach((btn) => btn.classList.remove('selected'));
+          button.classList.add('selected');
+
+          const start = new Date(button.dataset.start);
+          const end = new Date(button.dataset.end);
+          selectedSlot = {
+            start,
+            end,
+            label: button.dataset.display,
+            isoStart: button.dataset.start,
+            isoEnd: button.dataset.end,
+          };
+
+          updateSelectionSummary();
+          clearFeedback();
+          updateActionButtons();
+        }
+
+        async function fetchAvailability() {
+          selectionSummary.innerHTML =
+            '<p class="placeholder">Cargando disponibilidad desde tu calendario...</p>';
+          availabilityList.innerHTML =
+            '<p class="placeholder">Cargando disponibilidad...</p>';
+          try {
+            const response = await fetch(buildUrl('/api/google/availability'));
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              throw new Error(
+                payload?.error ||
+                  'No pudimos leer tu calendario. Asegurate de habilitar la integración.'
+              );
+            }
+            const payload = await response.json();
+            pageTimeZone = payload.timeZone || pageTimeZone;
+            renderSlots(payload.days || []);
+          } catch (error) {
+            availabilityList.innerHTML = `<p class="placeholder">${error.message}</p>`;
+            selectionSummary.innerHTML =
+              '<p class="placeholder">Conectá tu calendario y luego recargá la página.</p>';
+          }
+        }
+
+        function formatForGoogle(dateString) {
+          return new Date(dateString).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+
+        function openGoogleEvent() {
+          if (!selectedSlot) {
+            return;
+          }
+          const name = bookingForm['name'].value.trim();
+          const email = bookingForm['email'].value.trim();
+          const notes = bookingForm['notes'].value.trim();
+          const details = [
+            'Agenda estratégica con Baumann & Co.',
+            email ? `Contacto: ${email}` : '',
+            notes ? `Comentarios: ${notes}` : '',
+          ]
+            .filter(Boolean)
+            .join('\n');
+
+          const params = new URLSearchParams({
+            text: 'Reunión estratégica | Baumann & Co.',
+            dates: `${formatForGoogle(selectedSlot.isoStart)}/${formatForGoogle(
+              selectedSlot.isoEnd
+            )}`,
+            details,
+            location: 'Videollamada a coordinar',
+            ctz: pageTimeZone,
+          });
+
+          window.open(`https://calendar.google.com/calendar/r/eventedit?${params.toString()}`, '_blank');
+        }
+
+        function formatForICS(dateString) {
+          return new Date(dateString).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+
+        function downloadICS() {
+          if (!selectedSlot) {
+            return;
+          }
+          const name = bookingForm['name'].value.trim();
+          const email = bookingForm['email'].value.trim();
+          const notes = bookingForm['notes'].value.trim();
+          const summary = 'Reunión estratégica | Baumann & Co.';
+          const descriptionEntries = [
+            'Agenda estratégica con Baumann & Co.',
+            name ? `Participante: ${name}` : '',
+            email ? `Contacto: ${email}` : '',
+            notes ? `Comentarios: ${notes}` : '',
+          ].filter(Boolean);
+
+          const ics = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Baumann & Co.//Agenda//ES',
+            'CALSCALE:GREGORIAN',
+            'METHOD:REQUEST',
+            'BEGIN:VEVENT',
+            `DTSTAMP:${formatForICS(new Date().toISOString())}`,
+            `DTSTART:${formatForICS(selectedSlot.isoStart)}`,
+            `DTEND:${formatForICS(selectedSlot.isoEnd)}`,
+            `SUMMARY:${summary}`,
+            `DESCRIPTION:${descriptionEntries.join('\\n')}`,
+            'LOCATION:Videollamada a coordinar',
+            'STATUS:CONFIRMED',
+            'END:VEVENT',
+            'END:VCALENDAR',
+          ].join('\\r\\n');
+
+          const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'Baumann-reunion.ics';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        }
+
+        async function bookWithHost() {
+          if (!selectedSlot) {
+            return;
+          }
+          setFeedback('Registrando la reserva...', 'info');
+          isBooking = true;
+          updateActionButtons();
+          try {
+            const response = await fetch(buildUrl('/api/google/event'), {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                start: selectedSlot.isoStart,
+                end: selectedSlot.isoEnd,
+                name: bookingForm['name'].value.trim(),
+                email: bookingForm['email'].value.trim(),
+                notes: bookingForm['notes'].value.trim(),
+              }),
+            });
+            const payload = await response.json();
+            if (!response.ok) {
+              throw new Error(payload?.error || 'No pudimos confirmar la reserva.');
+            }
+            setFeedback('Reserva confirmada y te enviamos el correo.', 'success', payload.htmlLink);
+          } catch (error) {
+            setFeedback(error.message, 'error');
+          } finally {
+            isBooking = false;
+            updateActionButtons();
+          }
+        }
+
+        bookingForm.addEventListener('input', updateActionButtons);
+        bookingForm.addEventListener('change', updateActionButtons);
+        googleButton.addEventListener('click', openGoogleEvent);
+        icsButton.addEventListener('click', downloadICS);
+        hostButton.addEventListener('click', bookWithHost);
+
+        fetchAvailability();
+      })();
     </script>
   </body>
 </html>
